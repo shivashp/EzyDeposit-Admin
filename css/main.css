@@ -1,0 +1,82 @@
+.navbar-absolute {
+      padding-top: 35px;
+}
+h4.card-title {
+    font-size: 1.9em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+body#login {
+  background: url('../img/login.jpeg') center center;
+background-size: cover;
+position: relative;
+}
+body {
+  font-size: 16px;
+}
+div#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.5);
+}
+.card-header.text-center {
+      background: #3aaf85;
+}
+.login-page > .content, .lock-page > .content {
+    padding-top: 25vh;
+}
+.btn-login {
+    background-color: #3aaf85;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 40px;
+}
+.btn-login:hover, .btn-login:active, .btn-login:visited {
+  background-color: #339874;
+}
+.sidebar .nav p, .off-canvas-sidebar .nav p {
+  font-size: 19px;
+  font-weight: 400;
+}
+.sidebar[data-active-color="rose"] li.active > a, .off-canvas-sidebar[data-active-color="rose"] li.active > a {
+    background: #3aaf85;
+}
+.sidebar[data-background-color="black"], .off-canvas-sidebar[data-background-color="black"] {
+    background: url(../img/sidebar-1.jpg) top center;
+    background-position-y: -55px;
+}
+.sidebar:before, .sidebar:after, .off-canvas-sidebar:before, .off-canvas-sidebar:after {
+  background: rgba(0,0,0,0.6) !important;
+}
+.label {
+  box-shadow: 0 4px 5px 0 rgba(156, 39, 176, 0.14), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(156, 39, 176, 0.2);
+  font-size: 13px;
+}
+.label-danger {
+  background-color: #f44336;
+}
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+  background: #3aaf85;
+}
+.btn-success {
+  background-color: #3aaf85 !important;
+}
+.btn {
+  font-size: 1em;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.btn.btn-success:focus, .btn.btn-success:active, .btn.btn-success:hover, .navbar .navbar-nav > li > a.btn.btn-success:focus, .navbar .navbar-nav > li > a.btn.btn-success:active, .navbar .navbar-nav > li > a.btn.btn-success:hover {
+    box-shadow: 0 14px 26px -12px rgba(58, 175, 133, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
+}
+.form-input {
+  display: none;
+}
+.checkbox label, .radio label, label, .label-on-left, .label-on-right {
+    color: #333;
+    font-size: 17px;
+}
