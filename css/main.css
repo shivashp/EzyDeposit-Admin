@@ -80,3 +80,9 @@ div#overlay {
     color: #333;
     font-size: 17px;
 }
+.loader {
+  display: none;
+}
+.loader img {
+    width: 4%;
+}

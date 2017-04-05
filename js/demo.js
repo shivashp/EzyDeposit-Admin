@@ -489,8 +489,8 @@ demo = {
 
 
 
-	showNotification: function(from, align, message){
-        type = ['','info','success','warning','danger','rose','primary'];
+	showNotification: function(from, align, message, type){
+        //type = ['','info','success','warning','danger','rose','primary'];
 
         color = Math.floor((Math.random() * 6) + 1);
         color = 6
@@ -500,7 +500,7 @@ demo = {
         	message: message
 
         },{
-            type: type[color],
+            type: type,
             timer: 3000,
             placement: {
                 from: from,

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>EzyDeposit Admin</title>
+    <title>EzyDeposit Admin | User</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse">
                         <form class="navbar-form navbar-right" role="search">
-                          <a href="#" class = "btn btn-success sp-add-btn">Add</a>
+                          <a href="#" class = "btn btn-success sp-add-btn"> <i class="material-icons">add_circle</i> Add User</a>
                         </form>
                     </div>
                 </div>
@@ -37,25 +37,25 @@
                             <div class ="form-input">
                               <div class="card">
                                   <div class="card-content">
-                                      <h4 class="card-title">Add Branch</h4>
-                                      <form id="main-form" class="form-horizontal">
+                                      <h4 class="card-title">Add User</h4>
+                                      <form class="form-horizontal">
                                         <div class="row">
                                           <div class="col-md-6">
                                             <div class="row">
-                                                <label class="col-md-4 label-on-left">Branch Name</label>
+                                                <label class="col-md-4 label-on-left">User Name</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
-                                                        <input type="text" id="branch-name" class="form-control">
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                             </div><!--row-->
                                             <div class="row">
-                                                <label class="col-md-4 label-on-left">Branch Address</label>
+                                                <label class="col-md-4 label-on-left">Expiry Date</label>
                                                 <div class="col-md-8">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
-                                                        <textarea name="baddress" id="branch-address" class="form-control" rows="3" cols="80"></textarea>
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                             </div><!-- row-->
@@ -66,7 +66,7 @@
                                                 <div class="col-md-9">
                                                     <div class="form-group label-floating is-empty">
                                                         <label class="control-label"></label>
-                                                        <input type="text" id="branch-code" class="form-control">
+                                                        <input type="text" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,7 +75,7 @@
                                           <div class="row">
                                               <div class="col-md-12" style = "text-align:center;margin-top:30px">
                                                   <div class="form-group form-button">
-                                                    <button type="button" class="btn btn-fill btn-success" id="sp-save-btn">Add Branch</button>
+                                                    <button type="button" class="btn btn-fill btn-success sp-save-btn"><i class="material-icons">save</i> Add User</button>
                                                     <button type="reset" class="btn btn-fill btn-danger"><i class="material-icons">delete_forever</i> Cancel</button>
                                                   </div>
                                               </div>
@@ -87,21 +87,31 @@
                             <div class="card">
                                 <div class="card-content">
                                   <div class= "toolbar pull-right">
-                                    <a href="javascript:;" id="refresh" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="material-icons">refresh</i></a>
+                                    <a href="javascript:;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" onclick="demo.showNotification('top','right','Refresh Successful!')"><i class="material-icons">refresh</i></a>
                                   </div>
-                                    <h4 class="card-title">Branch Setup</h4>
+                                    <h4 class="card-title">User Setup</h4>
                                     <div class="material-datatables">
                                         <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Branch Name</th>
+                                                    <th>User Name</th>
+                                                    <th>Expiry Date</th>
                                                     <th>Branch Code</th>
                                                     <th>Status</th>
                                                     <th class="disabled-sorting text-right">Actions</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id = "table-body">
-
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>2016-12-03</td>
+                                                    <td><span class = "label label-danger">Unverified</span></td>
+                                                    <td class="text-right">
+                                                        <!-- <a href="#" class="btn btn-simple btn-info btn-icon like"><i class="material-icons">favorite</i></a>                                                         -->
+                                                        <a href="#" class="btn btn-success btn-sm">Verify</a>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -134,5 +144,24 @@
 <script src="js/material-dashboard.js"></script>
 <script src="js/demo.js"></script>
 <script src="js/main.js"></script>
-<script src="scripts/branch.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+      generate_sidebar('user');
+        $('#datatables').DataTable({
+            "pagingType": "full_numbers",
+            "lengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
+            ],
+            responsive: true,
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records",
+            }
+
+        });
+        $('.card .material-datatables label').addClass('form-group');
+    });
+</script>
+
 </html>
