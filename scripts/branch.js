@@ -98,19 +98,21 @@ function edit_branch(i){
   $("#branch-code").val(branch_json[i].branch_code);
   $("#branch-address").val(branch_json[i].address);
   $("#sp-save-btn").html("Update Branch");
-  $("#sp-save-btn").attr("id", "sp-edit-btn");
+  $("#sp-save-btn").attr("id","sp-edit-btn");
+  $("#sp-edit-btn").attr("data-id", branch_json[i].id)
   toggle_top_menu();
 }
 
 //Updates the branche
-function update_branch() {
+function update_branch(id) {
+  var id = $("#sp-edit-btn").attr("data-id");
   var name = $("#branch-name").val();
   var code = $("#branch-code").val();
   var address = $("#branch-address").val();
   $.ajax({
-      url: basepath + "branches",
+      url: basepath + "branches/"+id,
       type: "PUT",
-      dataType: 'json',
+      contentType: 'application/json',
       beforeSend: function() {
         $(".button-text").attr("disable", "true");
       },
@@ -123,8 +125,8 @@ function update_branch() {
       success: function(data) {
         $(".button-text").attr("disable", "false");
         $("#main-form")[0].reset();
-        $("#sp-save-btn").html("Add Branch");
-        $("#sp-save-btn").attr("id", "sp-save-btn");
+        $("#sp-edit-btn").html("Add Branch");
+        $("#sp-edit-btn").attr("id", "sp-save-btn");
         if(data.status == 'fail'){
             if(data.code == 409){
               demo.showNotification('top','right','Branch Update Unsuccessful!', 'danger');
@@ -139,7 +141,7 @@ function update_branch() {
 
 
       },
-      error: function(error) {        
+      error: function(error) {
         $(".button-text").attr("disable", "false");
         console.log("Error");
       },
@@ -162,4 +164,6 @@ $(document).delegate(".edit", "click", function() {
   edit_branch(i);
 })
 
-$("#sp-edit-btn").click(update_branch())
+$("#sp-edit-btn").click(function() {
+  update_branch();
+})
