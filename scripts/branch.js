@@ -1,4 +1,3 @@
-generate_sidebar('branch');
 get_branches();
 var branch_json;
 
@@ -10,9 +9,9 @@ function get_branches() {
       beforeSend: function() {
       },
       success: function(data) {
-        console.log(data);
+
         branch_json = data.data;
-        var str="";
+        var str= BRANCH_TOP;
         for(var i = 0; i< data.data.length; i++){
           var id = data.data[i].id;
           var name = data.data[i].name;
@@ -40,8 +39,9 @@ function get_branches() {
           str += "                                                <\/tr>";
 
         }
-        $("#table-body").html(str);
-        $("#datatables").DataTable();
+        str += BRANCH_BOTTOM;
+        $(".content").html(str);
+        $("#datatables-branch").DataTable();
       },
       error: function(error) {
         console.log("Error");
@@ -77,12 +77,9 @@ function add_branch() {
               demo.showNotification('top','right','Unknown Error Occurred', 'danger');
             }
         } else {
-          get_branches();
-          toggle_top_menu();
+          toggle_top_menu(get_branches());
           demo.showNotification('top','right','Branch Added Successfully', 'success');
         }
-
-
       },
       error: function(error) {
         $(".loader").hide();
@@ -149,12 +146,12 @@ function update_branch(id) {
 }
 
 //Handles Refresh click event
-$("#refresh").click(function() {
+$(document).delegate("#refresh", "click", function () {
   get_branches();
   demo.showNotification('top','right','Refresh Successful!', 'primary');
 })
 // Handles add button click
-$("#sp-save-btn").click(function() {
+$(document).delegate("#sp-save-btn", "click", function () {
   add_branch();
 })
 

@@ -86,3 +86,6 @@ div#overlay {
 .loader img {
     width: 4%;
 }
+.alert span, .alert .close i {
+  font-weight: 500;
+}

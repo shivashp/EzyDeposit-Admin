@@ -1,5 +1,4 @@
-get_denominations();
-
+// get_denominations();
 
 function get_denominations() {
   $.ajax({
@@ -9,7 +8,7 @@ function get_denominations() {
       },
       success: function(data) {
         console.log(data);
-        var str="";
+        var str=DENOMINATION_TOP;
         for(var i = 0; i< data.data.length; i++){
           var id = data.data[i].id;
           var unit = data.data[i].denomination_unit;
@@ -20,8 +19,9 @@ function get_denominations() {
           str += "                                                    <\/td>";
           str += "                                                <\/tr>";
         }
-        $("#table-body").html(str);        
-        $("#datatables").DataTable();
+        str += DENOMINATION_BOTTOM;
+        $(".content").html(str);
+        $("#datatables-denominations").DataTable();
       },
       error: function(error) {
         console.log("Error");
